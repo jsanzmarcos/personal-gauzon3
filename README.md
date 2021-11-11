@@ -1,14 +1,28 @@
-# personal-gauzon3
+# Domótica #
 
 
-SET_RAD_DESPACHO 1/1/121
-GET_RAD_DESPACHO 1/1/131
+## Ideas para el control de la calefacción ##
 
-SET_RAD_COCINA 1/1/133
-GET_RAD_COCINA 1/1/135
+- cuanto más autónomo mejor
+- semana con niños:
 
-SET_RAD_CHICAS 1/1/136
-GET_RAD_CHICAS 1/1/137
+* baños por la mañana y por la tarde
+* habitaciones por la mañana y por la tarde
+* salon por la mañana y por la tarde
+* finde por la mañana y por la tarde
+- me voy 24h
+- me voy 24h
 
-SET_RAD_CHICOS 1/1/138
-GET_RAD_CHICOS 1/1/139
+## Radiadores ##
+
+- SET_RAD_DESPACHO 1/1/121
+- GET_RAD_DESPACHO 1/1/131
+
+- SET_RAD_COCINA 1/1/133
+- GET_RAD_COCINA 1/1/135
+
+- SET_RAD_CHICAS 1/1/136
+- GET_RAD_CHICAS 1/1/137
+
+- SET_RAD_CHICOS 1/1/138
+- GET_RAD_CHICOS 1/1/139
