@@ -1,0 +1,122 @@
+
+
+
+
+conditions:
+  - name: "CUSTODY_WEEK"
+    test:
+        if_one:
+            - type: "date-range"
+              value: "2021-11-08 2021-11-12"
+          
+  - name: "CUSTODY_WEEKEND"
+    test:
+        if_one:
+            - type: "date-range"
+              value: "2021-11-08 2021-11-12"
+          
+  - name: "WORKING"
+    test:
+        - if_all: 
+            - type: "time"
+              value: "08:00 20:00"
+            - type: "weekday"
+              value: "Mon Tue Wed Thr Fri"
+
+
+  - name: "ANDY_AT_HOME"
+    test:
+        - if_all: 
+            - type: "external"
+              value: "EXT_ANDY"
+
+  - name: "AWAY"
+    test:
+        - if_all: 
+            - type: "external"
+              value: "EXT_AWAY"
+
+
+  - name: "KIDS_AT_HOME"
+    test:
+        - if_all: 
+            - type: "time"
+              value: "06:00 08:00"
+            - type: "weekday"
+              value: "Mon Tue Wed Thr Fri"
+            - type: "CUSTODY_WEEK"
+        - if_all: 
+            - type: "time"
+              value: "17:00 23:00"
+            - type: "weekday"
+              value: "Mon Tue Wed Thr Fri"
+            - type: "CUSTODY_WEEK"
+        - if_all: 
+            - type: "weekday"
+              value: "Sat Sun"
+            - type: "CUSTODY_WEEKEND"
+
+
+heaters:
+  - heater: "OFFICE"
+    rules: 
+        - condition: "WORKING"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+  - heater: "OFFICE"
+    rules: 
+        - condition: "WORKING"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+  - heater: "BOYS_BEDROOM"
+    rules: 
+        - condition: "KIDS_AT_HOME"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+  - heater: "GIRLS_BATHROOM"
+    rules: 
+        - condition: "KIDS_AT_HOME"
+          setpoint: "C"
+        - condition: "ANDY_AT_HOME"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+  - heater: "GIRLS_BEDROOM"
+    rules: 
+        - condition: "KIDS_AT_HOME"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+  - heater: "BOYS_BATHROOM"
+    rules: 
+        - condition: "KIDS_AT_HOME"
+          setpoint: "C"
+        - condition: "AWAY"
+          setpoint: "S"
+
+
+
+modes:
+  - name: "all"
+    setpoints:
+      - heater: "BOYS_BEDROOM"
+        day: "C"
+      - heater: "BOYS_BATHROOM"
+        day: "C"
+  
+      
+  - name: "standby"
+  - name: "confort"
+  - name: "extra-confort"
+  
+  
+  
+  
